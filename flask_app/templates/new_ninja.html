@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ninja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container w-50">
+        <h1 class="text-center my-5">New Ninja</h1>
+        <form action="/add_ninja" method="post" class="container w-75 bg-dark text-light p-4">
+            <div class="mb-3">
+                <label for="dojo" class="form-label">Dojo</label>
+                <select name="dojo" class="form-select">
+                    {% for dojo in dojos %}
+                        <option name="dojo" value="{{dojo.id}}">{{dojo.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="fname" class="form-label">First Name</label>
+                <input type="text" name="fname" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="lname" class="form-label">Last Name</label>
+                <input type="text" name="lname" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" name="age" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Add</button>
+        </form>
+        <div class="container p-4">
+            <a href="/dojos" class="btn btn-outline-primary rounded m-5">Home</a>
+        </div>
+    </div>
+</body>
+</html>
